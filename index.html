@@ -2,26 +2,24 @@
 <html>
     <head>
         <title>Club Application Form</title>
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <form action="/submit-form" method="post";
-        onsubmit="return confirm('Do you want to submit the form?');"
-        onreset="return confirm('Do you want to reset the form?');">
 
         <h1>Club Application Form</h1>
+
+        <form action="submit" method="post"
+            onsubmit="return confirm('Do you want to submit the form?');"
+            onreset="return confirm('Do you want to reset the form?');">
 
         <fieldset form="pinfo">
 
             <legend>Personal Information</legend>
 
-            <label for="studid">Student ID: </label><br>
-            <input type="number" id="studid" name="studid" required onblur="myFunction(this)"><br>
-            <label for="fname">Full name: </label><br>
-            <input type="text" id="fname" name="fname" required onblur="myFunction(this)"><br>
-            <label for="bday">Birthday: </label><br>
-            <input type="date" id="bday" name="bday" required onblur="myFunction(this)"><br>
-            <label for="email">Email address: </label><br>
-            <input type="text" id="email" name="email" required onblur="myFunction(this)"><br>
+            <label>Student ID: <input type="number" id="studid" name="studid" required onblur="myFunction(this)"></label><br>
+            <label>Full name: <input type="text" id="fname" name="fname" required onblur="myFunction(this)"></label><br>
+            <label>Birthday: <input type="date" id="bday" name="bday" required onblur="myFunction(this)"></label><br>
+            <label >Email address: <input type="text" id="email" name="email" required onblur="myFunction(this)"></label><br>
         </fieldset>
 
         <br>
@@ -29,9 +27,8 @@
         <fieldset form="ainfo">
 
             <legend>Application</legend>
-            <label for="mphone">Mobile phone: </label><br>
-            <input type="text" id="mphone" name="mphone" required onblur="myFunction(this)"><br>
-            <label for="grlevel">Grade Level: </label>
+            <label>Mobile phone: <input type="text" id="mphone" name="mphone" required onblur="myFunction(this)"></label><br>
+            <label>Grade Level:
             <select name="grlevel" id="grlevel" required onblur="myFunction(this)">
                 <option value="seven">7</option>
                 <option value="eight">8</option>
@@ -39,12 +36,11 @@
                 <option value="ten">10</option>
                 <option value="eleven">11</option>
                 <option value="twelve">12</option>
-            </select><br>
-            <label for="int">Intern</label>
-            <input type="radio" name="residency" value="int" id="int" required onblur="myFunction(this)">
-            <label for="ext">Extern</label>
-            <input type="radio" name="residency" value="ext" id="ext" required onblur="myFunction(this)"><br>
-            <label for="club">Preferred Club/Organization: </label>
+            </select>
+            </label><br>
+            <label>Intern <input type="radio" name="residency" value="int" id="int" required onblur="myFunction(this)"></label>
+            <label>Extern <input type="radio" name="residency" value="ext" id="ext" required onblur="myFunction(this)"></label><br>
+            <label>Preferred Club/Organization:
             <select name="club" id="club" required onblur="myFunction(this)">
                 <option value="bake">Bake Club</option>
                 <option value="sing">Himig Agham</option>
@@ -52,11 +48,11 @@
                 <option value="nature">CARE</option>
                 <option value="act">Kamalayan</option>
                 <option value="badminton">Volant</option>
-            </select><br>
+            </select>
+            </label><br>
         </fieldset>
         <br>
-            <label for="reason">Why do you want to join?</label><br>
-            <textarea id = "tArea" name="reason" rows ="4" cols="50" required onblur="myFunction(this)"></textarea><br>
+            <label>Why do you want to join? <textarea id = "tArea" name="reason" rows ="4" cols="50" required onblur="myFunction(this)"></textarea></label><br>
             <input type="submit" value="Submit">
             <input type="reset" value="Reset">
         </form>

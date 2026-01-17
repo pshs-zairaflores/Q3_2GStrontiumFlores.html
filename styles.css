@@ -1,0 +1,32 @@
+body {
+    font-family: 'Merriweather', serif;
+    margin: auto;
+    background-color: rgb(253, 208, 255);
+}
+
+h1 {
+    font-size: 50px;
+    background-color: rgb(120, 68, 172);
+    padding: 10px;
+    text-align: center;
+    color:aliceblue;
+    margin: 0;
+}
+
+legend {
+    font-size: 25px;
+}
+
+form {
+    text-align: center;
+    justify-content: center;
+    width: 500px;
+    margin: 50px auto;
+    padding: 10px;
+    border: 2px solid;
+}
+input:focus, select:focus, textarea:focus {
+    box-shadow: 1px 1px 7px #4a70e2;
+
+}
+
