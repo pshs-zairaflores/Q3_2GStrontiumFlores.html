@@ -76,7 +76,7 @@
                 localStorage.setItem(KEY, JSON.stringify(signups));
             }
 
-            document.getElementById("signupForm").addEventListener("submit", function (event)) {
+            document.getElementById("signupForm").addEventListener("submit", function (event) {
                 event.preventDefault();
             }
 
@@ -93,7 +93,7 @@
                 grade: document.getElementById("grlevel").value,
                 residency: document.querySelector('input[name="residency"]:checked').value,
                 club: document.getElementById("club").value,
-                reason: document.getElementById("reason").value
+                reason: document.getElementById("tArea").value
             };
 
             const signups = loadSignups();
