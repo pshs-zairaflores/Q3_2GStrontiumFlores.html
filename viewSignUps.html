@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>List of Students Who Signed-Up</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+
+        <h1>List of Students Who Signed-Up</h1>
+        <a href="index.html" class="top-link">Go Back to SignUp</a>
+
+        <div class="controls">
+        <label> Select Club:
+        <select id="clubFilter">
+            <option value="all">ALL</option>
+            <option value="Bake Club">Bake Club</option>
+            <option value="Himig Agham">Himig Agham</option>
+            <option value="Likha">Likha</option>
+            <option value="CARE">CARE</option>
+            <option value="Kamalayan">Kamalayan</option>
+            <option value="Volant">Volant</option>
+        </select>
+        </label>
+        <p>Total Sign-ups: <span id="total">0</span></p>
+        </div>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Club</th>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Grade</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Residency</th>
+                </tr>
+            </thead>
+        <tbody id="tableBody">
+        </tbody>
+        </table>
+
+        <p class="message" id="message"></p>
+
+        <script>
+
+        const STORAGE_KEY = "clubSignups";
+
+        function loadSignups() {
+            const data = localStorage.getItem(STORAGE_KEY);
+            return data ? JSON.parse(data) : [];
+        }
+
+        function renderTable(selectedClub = "all") {
+            const signups = loadSignups();
+            const tableBody = document.getElementById("tableBody");
+            const message = document.getElementById("message");
+            const total = document.getElementById("total");
+
+            tableBody.innerHTML = "";
+            message.textContent = "";
+
+            if (signups.length === 0) {
+                message.textContent = "No sign-ups found in local storage.";
+                total.textContent = 0;
+                return;
+            }
+
+            let filtered = signups;
+            if (selectedClub !== "all") {
+                filtered = signups.filter(s => s.club === selectedClub);
+            }
+            if (filtered.length === 0) {
+                message.textContent = "No sign-ups for the selected club.";
+                total.textContent = 0;
+                return;
+            }
+
+            filtered.forEach(s => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                     <td>${s.club}</td>
+                     <td>${s.studentId}</td>
+                     <td>${s.fullname}</td>
+                     <td>${s.grade}</td>
+                     <td>${s.email}</td>
+                     <td>${s.mobile}</td>
+                    <td>${s.residency}</td>
+                 `;
+
+                 body.appendChild(row);
+            });
+
+            total.textContent = filtered.length;
+        }
+
+        document.getElementById("clubFilter").addEventListener("change", function () {
+            renderTable(this.value);
+        });
+
+        renderTable();
+</script>
+
+    </body>
+</html>
